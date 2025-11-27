@@ -155,7 +155,9 @@ body{
 .pill-sub-input.end-pill{ border-top-right-radius: 25px; border-bottom-right-radius: 25px; }
 .pill-sub-input:hover{ background-color: #f2f7ff; }
 
-.pill-divider{ width: 1px; height: 32px; background-color: #e0e0e0; }
+.pill-divider{ width: 1px; height: 32px; background-color: #e0e0e0; 
+margin-left: -10px;}
+
 
 .input-display{
   font-weight: 600;
@@ -193,6 +195,7 @@ body{
   z-index: 10;
   cursor: pointer;
   transition: 0.2s;
+  margin-left: -10px;
 }
 .swap-btn-circle:hover{
   background: #f0f7ff;
@@ -518,6 +521,7 @@ body{
     transform: translateY(-50%);
     margin: 0;
     z-index: 20;
+
   }
   .swap-btn-circle:hover{ transform: translateY(-50%) rotate(180deg); }
 
