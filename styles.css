@@ -18,7 +18,7 @@ body{
 
 /* ----- Top bar & Hero ----- */
 .top-bar{
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 27, 114, 0.705);
   padding: 10px 0;
   position: absolute;
   width: 100%;
@@ -51,7 +51,7 @@ body{
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4) 100%);
+  background: linear-gradient(180deg, rgba(64, 82, 248, 0.4) 0%, rgba(84, 68, 231, 0.1) 50%, rgba(93, 57, 255, 0.4) 100%);
   z-index: 1;
 }
 .hero-content{
