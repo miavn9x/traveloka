@@ -1,13 +1,14 @@
-
-:root{
+:root {
   --primary-blue: #0770cd;
   --light-blue: #0ea5e9;
   --orange: #ff5e1f;
   --bg-page: #f1f5f9;
   --text-dark: #03121a;
 }
+
 html, body { height: 100%; }
-body{
+
+body {
   font-family: 'Google Sans', sans-serif;
   background: var(--bg-page);
   margin: 0;
@@ -16,25 +17,147 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ----- Top bar & Hero ----- */
-.top-bar{
-  background: rgba(0, 27, 114, 0.705);
-  padding: 10px 0;
+/* =========================================
+   1. TOP BAR & HERO (ĐÃ NÂNG CẤP)
+   ========================================= */
+
+/* --- Top Bar (Hàng 1) --- */
+.top-bar {
+  background: transparent; /* Nền trong suốt đè lên ảnh */
+  padding: 15px 0;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  z-index: 1000;
+  border-bottom: none; /* Bỏ viền cũ */
 }
-.nav-link-top{
-  color: #fff;
+
+/* Link Text trên Top Bar */
+.nav-link-top {
+  color: #fff !important;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 500;
-  transition: 0.2s;
+  font-weight: 600;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+  cursor: pointer;
 }
-.nav-link-top:hover{ color: #eee; opacity: 0.8; }
+.nav-link-top:hover {
+  opacity: 0.8;
+  color: #fff;
+}
 
-.hero{
+/* Icon Khuyến mãi (Vòng tròn xanh lá) */
+.icon-promo {
+  width: 20px;
+  height: 20px;
+  background-color: #00c16e;
+  color: #001e2b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Nút Đăng nhập (Outline trắng) */
+.btn-login-custom {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+.btn-login-custom:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+/* Nút Đăng ký (Xanh dương) */
+.btn-register-custom {
+  background: #007ce8;
+  border: none;
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+.btn-register-custom:hover {
+  background: #0060b5;
+  color: #fff;
+}
+
+/* --- Navigation Bar (Hàng 2 - Thay thế Service Tabs cũ) --- */
+.header-nav-bar {
+  position: absolute;
+  top: 65px; /* Nằm ngay dưới Top Bar */
+  width: 100%;
+  z-index: 900;
+  padding-bottom: 10px;
+}
+
+/* Container chứa các mục menu */
+.service-tabs {
+  display: flex;
+  justify-content: flex-start; /* Căn trái theo container */
+  gap: 25px; /* Khoảng cách giữa các chữ */
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+  flex-wrap: wrap;
+}
+
+/* Style cho từng mục menu (Dạng chữ, không phải nút) */
+.service-tab {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 700; /* In đậm */
+  font-size: 14px;
+  padding: 5px 0; /* Bỏ padding ngang */
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  opacity: 0.9;
+}
+
+.service-tab:hover {
+  background: transparent;
+  color: #fff;
+  opacity: 1;
+}
+
+.service-tab.active {
+  background: transparent;
+  color: #fff;
+  opacity: 1;
+  /* Nếu muốn gạch chân giống web thật thì uncomment dòng dưới */
+  /* border-bottom: 2px solid #fff; */ 
+}
+
+/* --- Hero Section --- */
+.hero {
   min-height: 600px;
   height: auto;
   padding-bottom: 50px;
@@ -47,23 +170,27 @@ body{
   align-items: center;
   justify-content: center;
 }
-.hero::before{
+
+.hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(64, 82, 248, 0.4) 0%, rgba(84, 68, 231, 0.1) 50%, rgba(93, 57, 255, 0.4) 100%);
   z-index: 1;
 }
-.hero-content{
+
+.hero-content {
   position: relative;
   z-index: 2;
   width: 100%;
   max-width: 1140px;
-  padding-top: 80px;
+  /* Tăng padding top để né 2 hàng header */
+  padding-top: 140px; 
   padding-left: 15px;
   padding-right: 15px;
 }
-.hero-title{
+
+.hero-title {
   color: #fff;
   font-weight: 700;
   font-size: 30px;
@@ -72,37 +199,12 @@ body{
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* ----- Tabs (responsive scroll) ----- */
-.service-tabs{
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  padding-bottom: 15px;
-  flex-wrap: wrap;
-}
-.service-tab{
-  background: transparent;
-  border: none;
-  color: rgba(255,255,255,0.7);
-  font-weight: 600;
-  font-size: 15px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.service-tab:hover{ background: rgba(255,255,255,0.1); color: #fff; }
-.service-tab.active{ background: #fff; color: var(--primary-blue); }
+/* =========================================
+   2. SEARCH CONTAINER & PILLS (Giữ nguyên)
+   ========================================= */
+.search-container { width: 100%; }
 
-/* ----- Search container & pills ----- */
-.search-container{ width: 100%; }
-.trip-pill, .hotel-sub-pill{
+.trip-pill, .hotel-sub-pill {
   background: transparent;
   color: #fff;
   border: none;
@@ -113,9 +215,20 @@ body{
   cursor: pointer;
   transition: 0.2s;
 }
-.trip-pill.active, .hotel-sub-pill.active{ background: var(--light-blue); color: #fff; }
-.hotel-sub-pill{ background: rgba(0,0,0,0.5); font-size: 13px; padding: 6px 16px; border-radius: 20px; }
-.input-label{
+
+.trip-pill.active, .hotel-sub-pill.active {
+  background: var(--light-blue);
+  color: #fff;
+}
+
+.hotel-sub-pill {
+  background: rgba(0,0,0,0.5);
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+.input-label {
   color: #fff;
   font-weight: 700;
   font-size: 13px;
@@ -125,7 +238,7 @@ body{
 }
 
 /* ----- Input group styling ----- */
-.pill-group-container{
+.pill-group-container {
   background: #fff;
   border-radius: 25px;
   display: flex;
@@ -138,9 +251,9 @@ body{
   transition: 0.2s;
   width: 100%;
 }
-.pill-group-container:hover{ border-color: #ccc; }
+.pill-group-container:hover { border-color: #ccc; }
 
-.pill-sub-input{
+.pill-sub-input {
   flex: 1;
   height: 100%;
   display: flex;
@@ -151,15 +264,18 @@ body{
   transition: 0.2s;
   width: 100%;
 }
-.pill-sub-input.start-pill{ border-top-left-radius: 25px; border-bottom-left-radius: 25px; }
-.pill-sub-input.end-pill{ border-top-right-radius: 25px; border-bottom-right-radius: 25px; }
-.pill-sub-input:hover{ background-color: #f2f7ff; }
+.pill-sub-input.start-pill { border-top-left-radius: 25px; border-bottom-left-radius: 25px; }
+.pill-sub-input.end-pill { border-top-right-radius: 25px; border-bottom-right-radius: 25px; }
+.pill-sub-input:hover { background-color: #f2f7ff; }
 
-.pill-divider{ width: 1px; height: 32px; background-color: #e0e0e0; 
-margin-left: -10px;}
+.pill-divider {
+  width: 1px;
+  height: 32px;
+  background-color: #e0e0e0;
+  margin-left: -10px;
+}
 
-
-.input-display{
+.input-display {
   font-weight: 600;
   color: var(--text-dark);
   font-size: 15px;
@@ -168,7 +284,8 @@ margin-left: -10px;}
   text-overflow: ellipsis;
   width: 100%;
 }
-.input-field-real{
+
+.input-field-real {
   border: none;
   outline: none;
   font-weight: 600;
@@ -176,9 +293,9 @@ margin-left: -10px;}
   font-size: 15px;
   background: transparent;
 }
-.input-field-real::placeholder{ color: #999; font-weight: 500; }
+.input-field-real::placeholder { color: #999; font-weight: 500; }
 
-.swap-btn-circle{
+.swap-btn-circle {
   width: 36px;
   height: 36px;
   background: #fff;
@@ -197,14 +314,16 @@ margin-left: -10px;}
   transition: 0.2s;
   margin-left: -10px;
 }
-.swap-btn-circle:hover{
+.swap-btn-circle:hover {
   background: #f0f7ff;
   border-color: var(--primary-blue);
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
-/* ----- Hotel specific ----- */
-.custom-input-box{
+/* =========================================
+   3. HOTEL SPECIFIC
+   ========================================= */
+.custom-input-box {
   background: #fff;
   height: 50px;
   display: flex;
@@ -216,11 +335,11 @@ margin-left: -10px;}
   cursor: pointer;
   transition: 0.2s;
 }
-.custom-input-box:hover{ background-color: #f8f9fa; }
-.custom-input-box i{ color: var(--light-blue); font-size: 18px; }
-.hotel-box-start{ border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-right: 1px solid #eee; }
-.hotel-box-mid{ border-right: 1px solid #eee; }
-.hotel-search-btn{
+.custom-input-box:hover { background-color: #f8f9fa; }
+.custom-input-box i { color: var(--light-blue); font-size: 18px; }
+.hotel-box-start { border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-right: 1px solid #eee; }
+.hotel-box-mid { border-right: 1px solid #eee; }
+.hotel-search-btn {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   background: var(--orange);
@@ -231,8 +350,7 @@ margin-left: -10px;}
   font-size: 20px;
 }
 
-/* Search buttons */
-.search-btn-rounded{
+.search-btn-rounded {
   background: var(--orange);
   border: none;
   width: 50px;
@@ -247,15 +365,16 @@ margin-left: -10px;}
   transition: 0.2s;
   box-shadow: 0 4px 10px rgba(255, 94, 31, 0.4);
 }
-.search-btn-rounded:hover, .hotel-search-btn:hover{
+.search-btn-rounded:hover, .hotel-search-btn:hover {
   background: #e04a10;
   transform: translateY(-2px);
 }
-.custom-checkbox{ width: 18px; height: 18px; margin-right: 6px; cursor: pointer; accent-color: var(--primary-blue); }
+.custom-checkbox { width: 18px; height: 18px; margin-right: 6px; cursor: pointer; accent-color: var(--primary-blue); }
 
-/* ----- Dropdown & Calendar (gộp) ----- */
-/* NOTE: z-index cao để menu/datepicker hiện trên hero overlay */
-.dropdown-menu-custom{
+/* =========================================
+   4. DROPDOWN & CALENDAR
+   ========================================= */
+.dropdown-menu-custom {
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   border: none;
@@ -266,19 +385,18 @@ margin-left: -10px;}
   z-index: 3000 !important;
   position: absolute;
 }
-.dropdown-item{
+.dropdown-item {
   padding: 10px 16px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
 }
-.dropdown-item:active,
-.dropdown-item:hover{ background-color: #f7f9fa; color: var(--primary-blue); }
+.dropdown-item:active, .dropdown-item:hover { background-color: #f7f9fa; color: var(--primary-blue); }
 
-.calendar-dropdown{ width: 700px; padding: 20px; }
-.calendar-header{ font-weight: 700; font-size: 16px; margin-bottom: 15px; text-transform: capitalize; }
-.calendar-days-grid{ display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 10px; }
+.calendar-dropdown { width: 700px; padding: 20px; }
+.calendar-header { font-weight: 700; font-size: 16px; margin-bottom: 15px; text-transform: capitalize; }
+.calendar-days-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 10px; }
 
-.day-cell{
+.day-cell {
   height: 40px;
   display: flex;
   align-items: center;
@@ -289,15 +407,15 @@ margin-left: -10px;}
   border-radius: 50%;
   transition: 0.1s;
 }
-.day-cell:hover:not(.empty):not(.disabled){ background-color: #e6f4ff; color: var(--primary-blue); }
-.day-cell.selected{ background-color: var(--primary-blue); color: #fff; border-radius: 50% !important; z-index: 2; position: relative; }
-.day-cell.in-range{ background-color: #ebf6ff; color: #000; border-radius: 0; }
-.day-cell.range-start{ background-color: var(--primary-blue); color: #fff; border-radius: 50% 0 0 50%; }
-.day-cell.range-end{ background-color: var(--primary-blue); color: #fff; border-radius: 0 50% 50% 0; }
-.day-cell.empty{ cursor: default; visibility: hidden; }
+.day-cell:hover:not(.empty):not(.disabled) { background-color: #e6f4ff; color: var(--primary-blue); }
+.day-cell.selected { background-color: var(--primary-blue); color: #fff; border-radius: 50% !important; z-index: 2; position: relative; }
+.day-cell.in-range { background-color: #ebf6ff; color: #000; border-radius: 0; }
+.day-cell.range-start { background-color: var(--primary-blue); color: #fff; border-radius: 50% 0 0 50%; }
+.day-cell.range-end { background-color: var(--primary-blue); color: #fff; border-radius: 0 50% 50% 0; }
+.day-cell.empty { cursor: default; visibility: hidden; }
 
-.counter-row{ display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid #eee; }
-.btn-counter{
+.counter-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid #eee; }
+.btn-counter {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -310,11 +428,11 @@ margin-left: -10px;}
   cursor: pointer;
   user-select: none;
 }
-.btn-counter:active{ background: #f0f7ff; }
+.btn-counter:active { background: #f0f7ff; }
 
-/* bottom / quick links */
-.bottom-links{ display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
-.bottom-link{
+/* Bottom / Quick links */
+.bottom-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+.bottom-link {
   color: #fff;
   text-decoration: none;
   font-size: 13px;
@@ -327,8 +445,10 @@ margin-left: -10px;}
   gap: 5px;
 }
 
-/* ----- Unified bar (bus/transfer/car) ----- */
-.unified-search-bar{
+/* =========================================
+   5. UNIFIED BAR (BUS/TRANSFER/CAR)
+   ========================================= */
+.unified-search-bar {
   background: #fff;
   border-radius: 12px;
   display: flex;
@@ -338,7 +458,7 @@ margin-left: -10px;}
   position: relative;
   width: 100%;
 }
-.unified-item{
+.unified-item {
   height: 100%;
   display: flex;
   align-items: center;
@@ -347,9 +467,9 @@ margin-left: -10px;}
   cursor: pointer;
   transition: 0.2s;
 }
-.unified-item:hover{ background-color: #f2f7ff; }
-.unified-divider{ width: 1px; height: 30px; background-color: #e0e0e0; }
-.unified-search-btn{
+.unified-item:hover { background-color: #f2f7ff; }
+.unified-divider { width: 1px; height: 30px; background-color: #e0e0e0; }
+.unified-search-btn {
   height: 100%;
   width: 60px;
   background: var(--orange);
@@ -363,9 +483,9 @@ margin-left: -10px;}
   justify-content: center;
   transition: 0.2s;
 }
-.unified-search-btn:hover{ background: #e04a10; }
+.unified-search-btn:hover { background: #e04a10; }
 
-.bus-swap-absolute{
+.bus-swap-absolute {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -383,21 +503,23 @@ margin-left: -10px;}
   cursor: pointer;
   transition: 0.3s;
 }
-.bus-swap-absolute:hover{ transform: translate(-50%, -50%) rotate(180deg); border-color: var(--primary-blue); }
-.unified-item:first-child{ border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+.bus-swap-absolute:hover { transform: translate(-50%, -50%) rotate(180deg); border-color: var(--primary-blue); }
+.unified-item:first-child { border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
 
-/* flex ratios (giữ nguyên) */
-.unified-item.route-box{ flex: 2; } .unified-item.date-box{ flex: 1.5; } .unified-item.seat-box{ flex: 1.2; }
-.transfer-route-box{ flex: 3; } .transfer-date-box{ flex: 1.2; } .transfer-time-box{ flex: 0.8; }
-.car-location-box{ flex: 2.2; } .car-date-box{ flex: 1.2; } .car-time-box{ flex: 0.8; }
+/* Flex ratios */
+.unified-item.route-box { flex: 2; } .unified-item.date-box { flex: 1.5; } .unified-item.seat-box { flex: 1.2; }
+.transfer-route-box { flex: 3; } .transfer-date-box { flex: 1.2; } .transfer-time-box { flex: 0.8; }
+.car-location-box { flex: 2.2; } .car-date-box { flex: 1.2; } .car-time-box { flex: 0.8; }
 
-/* ----- Modal & activity styles ----- */
-.btn-toggle-car{ background: rgba(0,0,0,0.4); border: none; padding: 6px 16px; border-radius: 20px; color: #fff; font-weight: 600; font-size: 14px; transition: 0.2s; }
-.btn-toggle-car:hover{ background: rgba(0,0,0,0.6); }
-.btn-toggle-car.active{ background: #007ce8; color: #fff; }
+/* =========================================
+   6. MODAL & ACTIVITY STYLES
+   ========================================= */
+.btn-toggle-car { background: rgba(0,0,0,0.4); border: none; padding: 6px 16px; border-radius: 20px; color: #fff; font-weight: 600; font-size: 14px; transition: 0.2s; }
+.btn-toggle-car:hover { background: rgba(0,0,0,0.6); }
+.btn-toggle-car.active { background: #007ce8; color: #fff; }
 
-.modal-other-title{ font-size: 18px; font-weight: 700; color: #333; margin: 12px 0; }
-.modal-item-box{
+.modal-other-title { font-size: 18px; font-weight: 700; color: #333; margin: 12px 0; }
+.modal-item-box {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -411,17 +533,17 @@ margin-left: -10px;}
   text-decoration: none;
   color: #000;
 }
-.modal-item-box:hover{ border-color: var(--primary-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: var(--primary-blue); }
-.modal-icon-circle{ width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 16px; }
+.modal-item-box:hover { border-color: var(--primary-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: var(--primary-blue); }
+.modal-icon-circle { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 16px; }
 
-.icon-pink{ color: #ec4899; background: #fdf2f8; }
-.icon-green{ color: #10b981; background: #ecfdf5; }
-.icon-blue{ color: #3b82f6; background: #eff6ff; }
-.icon-orange{ color: #f97316; background: #fff7ed; }
-.icon-purple{ color: #a855f7; background: #f3e8ff; }
+.icon-pink { color: #ec4899; background: #fdf2f8; }
+.icon-green { color: #10b981; background: #ecfdf5; }
+.icon-blue { color: #3b82f6; background: #eff6ff; }
+.icon-orange { color: #f97316; background: #fff7ed; }
+.icon-purple { color: #a855f7; background: #f3e8ff; }
 
-.item-text{ font-weight: 600; font-size: 14px; }
-.act-pill{
+.item-text { font-weight: 600; font-size: 14px; }
+.act-pill {
   background: rgba(255,255,255,0.2);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.3);
@@ -434,9 +556,9 @@ margin-left: -10px;}
   white-space: nowrap;
   border: none;
 }
-.act-pill:hover{ background: #fff; color: var(--primary-blue); transform: translateY(-2px); }
+.act-pill:hover { background: #fff; color: var(--primary-blue); transform: translateY(-2px); }
 
-.btn-explore{
+.btn-explore {
   background: rgba(0,0,0,0.6);
   color: #fff;
   border: 1px solid rgba(255,255,255,0.3);
@@ -450,12 +572,14 @@ margin-left: -10px;}
   align-items: center;
   gap: 8px;
 }
-.btn-explore:hover{ background: #000; color: #fff; border-color: #fff; }
-.text-shadow{ text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+.btn-explore:hover { background: #000; color: #fff; border-color: #fff; }
+.text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
 
-/* ----- Offcanvas ----- */
-.offcanvas-custom{ width: 300px; }
-.offcanvas-link{
+/* =========================================
+   7. OFFCANVAS & RESPONSIVE
+   ========================================= */
+.offcanvas-custom { width: 300px; }
+.offcanvas-link {
   display: block;
   padding: 12px 20px;
   color: #333;
@@ -463,14 +587,10 @@ margin-left: -10px;}
   text-decoration: none;
   border-bottom: 1px solid #f0f0f0;
 }
-.offcanvas-link:hover{ background: #f5f5f5; color: var(--primary-blue); }
+.offcanvas-link:hover { background: #f5f5f5; color: var(--primary-blue); }
 
-/* ----- Small global fixes ----- */
-/* ensure bootstrap popper menus appear above hero overlay */
-.dropdown-menu-custom{ z-index: 3000 !important; }
-
-/* make mobile-open menus static and full-width when required */
-.dropdown-mobile-open{
+.dropdown-menu-custom { z-index: 3000 !important; }
+.dropdown-mobile-open {
   position: static !important;
   width: 100% !important;
   box-shadow: none !important;
@@ -479,21 +599,37 @@ margin-left: -10px;}
   overflow: auto;
 }
 
-/* calendar modal specifics */
-#calendarModal .modal-body{ padding: 0; }
-#calendarModal .modal-dialog{ max-width: 740px; width: 95%; }
-.mobile-calendar-left-header{ background: #fff; border-bottom: 1px solid #eee; }
+#calendarModal .modal-body { padding: 0; }
+#calendarModal .modal-dialog { max-width: 740px; width: 95%; }
+.mobile-calendar-left-header { background: #fff; border-bottom: 1px solid #eee; }
 
-/* ----- Responsive: Tablet & Mobile ----- */
-@media (max-width: 991px){
-  .mobile-calendar-left-header{ border-radius: 12px 12px 0 0; }
+/* Responsive: Tablet & Mobile */
+@media (max-width: 991px) {
+  /* Điều chỉnh lại vị trí Header Nav Bar trên mobile */
+  .header-nav-bar {
+    position: relative;
+    top: auto;
+    margin-top: 60px; /* Né top bar */
+    padding: 10px 0;
+    background: rgba(0,0,0,0.2);
+    overflow-x: auto;
+  }
+  
+  .service-tabs {
+    justify-content: flex-start;
+    padding-left: 15px;
+    padding-right: 15px;
+    flex-wrap: nowrap; /* Cho phép cuộn ngang */
+    gap: 15px;
+  }
 
-  .hero-title{ font-size: 24px; }
-  .service-tabs{ justify-content: flex-start; gap: 8px; padding-bottom: 10px; }
-  .service-tab{ flex: initial; margin-bottom: 4px; font-size: 14px; padding: 6px 12px; }
+  .hero { padding-top: 0; }
+  .hero-content { padding-top: 30px; }
+  .hero-title { font-size: 24px; }
 
-  /* Input groups stacking */
-  .pill-group-container{
+  /* Các style cũ cho form mobile */
+  .mobile-calendar-left-header { border-radius: 12px 12px 0 0; }
+  .pill-group-container {
     border-radius: 16px;
     margin-bottom: 10px;
     height: auto;
@@ -502,18 +638,19 @@ margin-left: -10px;}
     overflow: visible;
     border: none;
   }
-  .pill-sub-input{
+  .pill-sub-input {
     width: 100%;
     padding: 15px;
     border: 1px solid transparent;
     background: #fff;
     margin-bottom: 2px;
   }
-  .pill-sub-input.start-pill{ border-radius: 16px 16px 0 0; border-bottom: 1px solid #eee; }
-  .pill-sub-input.end-pill{ border-radius: 0 0 16px 16px; }
-  .pill-sub-input:only-child{ border-radius: 16px; }
-  .pill-divider{ display: none; }
-  .swap-btn-circle{
+  .pill-sub-input.start-pill { border-radius: 16px 16px 0 0; border-bottom: 1px solid #eee; }
+  .pill-sub-input.end-pill { border-radius: 0 0 16px 16px; }
+  .pill-sub-input:only-child { border-radius: 16px; }
+  .pill-divider { display: none; }
+  
+  .swap-btn-circle {
     position: absolute;
     top: 50%;
     left: auto;
@@ -521,12 +658,11 @@ margin-left: -10px;}
     transform: translateY(-50%);
     margin: 0;
     z-index: 20;
-
   }
-  .swap-btn-circle:hover{ transform: translateY(-50%) rotate(180deg); }
+  .swap-btn-circle:hover { transform: translateY(-50%) rotate(180deg); }
 
-  /* Calendar mobile: hiển thị 1 cột dọc với 2 tháng xếp chồng */
-  .calendar-dropdown{
+  /* Calendar mobile logic */
+  .calendar-dropdown {
     width: 100% !important;
     max-width: 100% !important;
     max-height: 70vh;
@@ -543,111 +679,33 @@ margin-left: -10px;}
     box-shadow: 0 -4px 20px rgba(0,0,0,0.15) !important;
     z-index: 9999 !important;
   }
-  
-  /* Calendar content wrapper - hiển thị 1 cột */
-  .calendar-dropdown > .d-flex.p-3.gap-4 {
-    flex-direction: column !important;
-    gap: 0 !important;
-    padding: 16px !important;
-  }
-  
-  /* Mỗi tháng chiếm 100% width */
-  .calendar-dropdown > .d-flex.p-3.gap-4 > .w-50 {
-    width: 100% !important;
-    margin-bottom: 20px;
-  }
-  
-  /* Calendar header styling */
-  .calendar-dropdown .calendar-header {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-  }
-  
-  /* Day cells trong grid */
-  .calendar-dropdown .calendar-days-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-  }
-  
-  .calendar-dropdown .day-cell {
-    height: 36px;
-    font-size: 14px;
-  }
-  
-  /* Nút Áp dụng sticky ở dưới */
+  .calendar-dropdown > .d-flex.p-3.gap-4 { flex-direction: column !important; gap: 0 !important; padding: 16px !important; }
+  .calendar-dropdown > .d-flex.p-3.gap-4 > .w-50 { width: 100% !important; margin-bottom: 20px; }
+  .calendar-dropdown .calendar-header { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+  .calendar-dropdown .calendar-days-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+  .calendar-dropdown .day-cell { height: 36px; font-size: 14px; }
   .calendar-dropdown > .p-3.border-top.text-end {
-    position: sticky;
-    bottom: 0;
-    background: #fff;
-    padding: 12px 16px !important;
-    border-top: 1px solid #eee;
-    z-index: 10;
+    position: sticky; bottom: 0; background: #fff; padding: 12px 16px !important; border-top: 1px solid #eee; z-index: 10;
   }
+  .calendar-dropdown > .p-3.border-top.text-end .btn { width: 100%; padding: 12px 24px; font-size: 16px; font-weight: 600; border-radius: 8px; }
+
+  .hotel-box-start, .hotel-box-mid { border-radius: 16px !important; border: none; margin-bottom: 8px; }
+  .hotel-search-btn { border-radius: 16px !important; margin-top: 10px; }
+
+  .unified-search-bar { height: auto; flex-direction: column; border-radius: 16px; padding: 12px; gap: 10px; }
+  .unified-item { width: 100%; height: auto; border-right: none; border-bottom: none; border-radius: 0 !important; padding: 10px 12px; }
+  .unified-divider { display: none; }
+  .unified-search-btn { width: 100%; border-radius: 12px; height: 48px; }
   
-  .calendar-dropdown > .p-3.border-top.text-end .btn {
-    width: 100%;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-  }
-
-  .hotel-box-start, .hotel-box-mid{ border-radius: 16px !important; border: none; margin-bottom: 8px; }
-  .hotel-search-btn{ border-radius: 16px !important; margin-top: 10px; }
-
-  /* Unified bars become stacked forms */
-  .unified-search-bar{
-    height: auto;
-    flex-direction: column;
-    border-radius: 16px;
-    padding: 12px;
-    gap: 10px;
-  }
-  .unified-item{
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 0 !important;
-    padding: 10px 12px;
-  }
-  .unified-divider{ display: none; }
-  .unified-search-btn{ width: 100%; border-radius: 12px; height: 48px; }
-
-  .bus-swap-absolute{
-    right: 20px;
-    left: auto;
-    top: 18px;
-    transform: none;
-    position: absolute;
-  }
-
-  .search-btn-rounded{ width: 100%; border-radius: 25px; margin-top: 10px; }
-  .col-md-1.d-flex{ display: block !important; margin-top: 10px !important; }
-
-  .btn-explore{ width: 100%; margin-top: 10px; justify-content: center; }
-
-  /* Make general dropdown menus static inline on mobile (except calendar) */
-  .dropdown-menu-custom:not(.calendar-dropdown){
-    position: static !important;
-    width: 100% !important;
-    box-shadow: none !important;
-    margin-top: 8px !important;
-    max-height: none !important;
-    overflow: visible !important;
-  }
+  .bus-swap-absolute { right: 20px; left: auto; top: 18px; transform: none; position: absolute; }
+  .search-btn-rounded { width: 100%; border-radius: 25px; margin-top: 10px; }
+  .col-md-1.d-flex { display: block !important; margin-top: 10px !important; }
+  .btn-explore { width: 100%; margin-top: 10px; justify-content: center; }
+  .dropdown-menu-custom:not(.calendar-dropdown) { position: static !important; width: 100% !important; box-shadow: none !important; margin-top: 8px !important; max-height: none !important; overflow: visible !important; }
 }
 
-/* Very small screens polish */
-@media (max-width: 420px){
-  .hero{ padding-top: 60px; }
-  .service-tab{ padding: 6px 10px; font-size: 13px; }
-  
-  .calendar-dropdown .day-cell {
-    height: 32px;
-    font-size: 13px;
-  }
+@media (max-width: 420px) {
+  .hero { padding-top: 60px; }
+  .service-tab { padding: 6px 10px; font-size: 13px; }
+  .calendar-dropdown .day-cell { height: 32px; font-size: 13px; }
 }

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveloka Footer - Exact UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CONFIG VARIABLES (Scoped) --- */
+        :root {
+            --tf-bg-dark: #1c2930;       /* Màu nền chính */
+            --tf-text-title: #ffffff;    /* Màu tiêu đề */
+            --tf-text-link: #c5c9cc;     /* Màu link xám nhạt */
+            --tf-text-hover: #ffffff;    /* Màu hover */
+            --tf-border: #3e4c54;        /* Màu viền */
+        }
+
+        body { background-color: #f0f0f0; margin: 0; }
+
+        /* --- BEM & CAMELCASE CSS --- */
+
+        /* BLOCK: travelokaFooter */
+        .travelokaFooter {
+            background-color: var(--tf-bg-dark);
+            color: var(--tf-text-link);
+            padding-top: 50px;
+            padding-bottom: 30px;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* ELEMENT: heading */
+        .travelokaFooter__heading {
+            color: var(--tf-text-title);
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        /* ELEMENT: linkList & linkItem */
+        .travelokaFooter__linkList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .travelokaFooter__linkItem {
+            display: block;
+            color: var(--tf-text-link);
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .travelokaFooter__linkItem:hover {
+            color: var(--tf-text-hover);
+        }
+
+        /* ELEMENT: logoSection */
+        .travelokaFooter__logoSection {
+            margin-bottom: 25px;
+        }
+        .travelokaFooter__logoImg {
+            /* Giả lập logo Traveloka text trắng */
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -1px;
+        }
+        .travelokaFooter__logoBird {
+            color: #1ba0e2; /* Màu xanh đặc trưng của con chim Traveloka */
+        }
+
+        /* ELEMENT: certBadge (Chứng chỉ) */
+        .travelokaFooter__certSection {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            align-items: center;
+        }
+        
+        /* Giả lập các badge chứng chỉ hình tròn/chữ nhật */
+        .travelokaFooter__certBadge {
+            background: white;
+            height: 35px;
+            min-width: 35px;
+            padding: 0 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .travelokaFooter__certBadge--round {
+            border-radius: 50%;
+            padding: 0;
+            width: 35px;
+        }
+        
+        .travelokaFooter__certBadge--bct {
+            background: transparent;
+            /* Giả lập logo bộ công thương */
+            width: auto;
+        }
+        .travelokaFooter__certBadge--bct img {
+            height: 35px; 
+            width: auto;
+        }
+
+        /* ELEMENT: partnerBtn (Nút Hợp tác) */
+        .travelokaFooter__partnerBtn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #fff;
+            color: #fff;
+            background-color: transparent;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .travelokaFooter__partnerBtn:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        .travelokaFooter__partnerBtn i {
+            margin-right: 8px;
+        }
+
+        /* ELEMENT: paymentGrid (Lưới thanh toán) */
+        .travelokaFooter__paymentGrid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .travelokaFooter__paymentItem {
+            background: #fff;
+            width: 50px;
+            height: 30px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        /* Style text giả lập logo ngân hàng để giống hình mà không cần ảnh */
+        .travelokaFooter__paymentLogo {
+            font-size: 8px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 1;
+        }
+
+        /* ELEMENT: socialList */
+        .travelokaFooter__socialList {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        
+        .travelokaFooter__socialIcon {
+            font-size: 22px;
+            color: var(--tf-text-link);
+            transition: color 0.3s;
+        }
+        .travelokaFooter__socialIcon:hover {
+            color: var(--tf-text-title);
+        }
+
+        /* ELEMENT: appDownload */
+        .travelokaFooter__downloadList {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .travelokaFooter__downloadBadge {
+            width: 140px; /* Kích thước chuẩn badge store */
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #555;
+            cursor: pointer;
+        }
+
+        /* ELEMENT: copyright */
+        .travelokaFooter__copyright {
+            border-top: 1px solid var(--tf-border);
+            margin-top: 40px;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #aeb4b9;
+        }
+        .travelokaFooter__copyright p {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive spacing adjustments */
+        @media (max-width: 768px) {
+            .travelokaFooter__heading {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <footer class="travelokaFooter">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="travelokaFooter__logoSection">
+                        <div class="travelokaFooter__logoImg">traveloka <i class="fa-solid fa-dove travelokaFooter__logoBird"></i></div>
+                    </div>
+                    
+                    <div class="travelokaFooter__certSection">
+                        <div class="travelokaFooter__certBadge travelokaFooter__certBadge--bct">
+                             <img src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png" alt="BCT">
+                        </div>
+                        <div class="travelokaFooter__certBadge" title="IATA Security">IATA</div>
+                        <div class="travelokaFooter__certBadge" title="ISO Security">ISO</div>
+                        <div class="travelokaFooter__certBadge travelokaFooter__certBadge--round" title="PCI DSS"><i class="fa-solid fa-shield-halved"></i></div>
+                    </div>
+
+                    <a href="#" class="travelokaFooter__partnerBtn">
+                        <i class="fa-solid fa-handshake"></i> Hợp tác với Traveloka
+                    </a>
+
+                    <h5 class="travelokaFooter__heading">Đối tác thanh toán</h5>
+                    <div class="travelokaFooter__paymentGrid">
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-primary">VISA</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-danger">Master</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-primary">JCB</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-info">AMEX</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-success">VietQR</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-danger">MOMO</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-warning">Shopee</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-primary">Zalo</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-success">VCB</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-danger">TCB</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-primary">ACB</span></div>
+                        <div class="travelokaFooter__paymentItem"><span class="travelokaFooter__paymentLogo text-info">BIDV</span></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4 offset-lg-1">
+                    <h5 class="travelokaFooter__heading">Về Traveloka</h5>
+                    <ul class="travelokaFooter__linkList">
+                        <li><a href="#" class="travelokaFooter__linkItem">Cách đặt chỗ</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Liên hệ chúng tôi</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Trợ giúp</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Tuyển dụng</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Về chúng tôi</a></li>
+                    </ul>
+
+                    <h5 class="travelokaFooter__heading mt-4">Theo dõi chúng tôi trên</h5>
+                    <ul class="travelokaFooter__socialList">
+                        <li><a href="#" class="travelokaFooter__socialIcon"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#" class="travelokaFooter__socialIcon"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#" class="travelokaFooter__socialIcon"><i class="fa-brands fa-tiktok"></i></a></li>
+                        <li><a href="#" class="travelokaFooter__socialIcon"><i class="fa-brands fa-youtube"></i></a></li>
+                        <li><a href="#" class="travelokaFooter__socialIcon"><i class="fa-brands fa-telegram"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="travelokaFooter__heading">Sản phẩm</h5>
+                    <ul class="travelokaFooter__linkList">
+                        <li><a href="#" class="travelokaFooter__linkItem">Khách sạn</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Vé máy bay</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Vé xe khách</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Đưa đón sân bay</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Cho thuê xe</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Hoạt động & Vui chơi</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Du thuyền</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Biệt thự</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Căn hộ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 offset-lg-1">
+                    <h5 class="travelokaFooter__heading">Khác</h5>
+                    <ul class="travelokaFooter__linkList">
+                        <li><a href="#" class="travelokaFooter__linkItem">Traveloka Affiliate</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Traveloka Blog</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Chính Sách Quyền Riêng Tư</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Điều khoản & Điều kiện</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Đăng ký nơi nghỉ của bạn</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Đăng ký doanh nghiệp du lịch</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Khu vực báo chí</a></li>
+                        <li><a href="#" class="travelokaFooter__linkItem">Quy chế hoạt động</a></li>
+                    </ul>
+
+                    <h5 class="travelokaFooter__heading mt-4">Tải ứng dụng Traveloka</h5>
+                    <div class="travelokaFooter__downloadList">
+                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="travelokaFooter__downloadBadge"></a>
+                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="travelokaFooter__downloadBadge"></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="travelokaFooter__copyright">
+                        <p>Công ty TNHH Traveloka Việt Nam. Mã số DN: 0313581779. Tòa nhà An Phú, 117-119 Lý Chính Thắng, Phường Võ Thị Sáu, Quận 3, TP.HCM</p>
+                        <p>Copyright © 2025 Traveloka. All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

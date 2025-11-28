@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
           <link rel="stylesheet" href="styles.css" />
+
+
 </head>
 <body>
 
@@ -28,29 +30,84 @@
             <button class="btn btn-primary w-100 fw-bold">Đăng ký</button>
         </div>
     </div>
+    
   </div>
 
-  <div class="top-bar">
+<div class="top-bar">
     <div class="container d-flex justify-content-between align-items-center">
-      <div class="d-flex align-items-center gap-3">
-        <button class="btn text-white d-lg-none p-0 fs-4" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <a href="#" class="text-white text-decoration-none fs-4 fw-bold fst-italic"><i class="fas fa-dove"></i> traveloka</a>
-      </div>
-      
-      <div class="d-flex align-items-center gap-3 d-none d-lg-flex">
-        <a href="#" class="nav-link-top"><img src="https://flagcdn.com/w20/vn.png" width="18" alt="lang"> VND</a>
-        <a href="#" class="nav-link-top">Khuyến mãi</a>
-        <a href="#" class="nav-link-top">Hỗ trợ</a>
-        <a href="#" class="nav-link-top">Đặt chỗ của tôi</a>
-        <button class="btn btn-outline-light btn-sm fw-bold ms-2">Đăng Nhập</button>
-        <button class="btn btn-primary btn-sm fw-bold border-0" style="background: #007ce8;">Đăng ký</button>
-      </div>
-    </div>
-  </div>
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn text-white d-lg-none p-0 fs-4" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="#" class="text-white text-decoration-none fs-3 fw-bold fst-italic d-flex align-items-center">
+                traveloka <i class="fas fa-dove ms-1 fs-5"></i>
+            </a>
+        </div>
 
-  <section class="hero ">
+        <div class="d-flex align-items-center d-none d-lg-flex">
+            <a href="#" class="nav-link-top">
+                <img src="https://flagcdn.com/w20/vn.png" width="20" alt="VN"> VND | VI <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+            </a>
+
+            <a href="#" class="nav-link-top">
+                <span class="icon-promo"><i class="fas fa-percent"></i></span> Khuyến mãi
+            </a>
+
+            <div class="dropdown">
+                <a href="#" class="nav-link-top" data-bs-toggle="dropdown">
+                    Hỗ trợ <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+                </a>
+                <ul class="dropdown-menu shadow border-0 mt-2">
+                    <li><a class="dropdown-item" href="#">Trung tâm trợ giúp</a></li>
+                    <li><a class="dropdown-item" href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <a href="#" class="nav-link-top">Hợp tác với chúng tôi</a>
+
+            <a href="#" class="nav-link-top me-3">Đặt chỗ của tôi</a>
+
+            <div class="d-flex gap-2">
+                <button class="btn-login-custom">
+                    <i class="fas fa-user"></i> Đăng Nhập
+                </button>
+                <button class="btn-register-custom">
+                    Đăng ký
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="hero">
+    
+    <div class="header-nav-bar d-none d-md-block">
+        <div class="container ">
+            <div class="service-nav-list d-flex gap-4 text-white">
+                <div class="nav-service-item" onclick="switchTab('hotel')">Khách sạn</div>
+                <div class="nav-service-item" onclick="switchTab('flight')">Vé máy bay</div>
+                <div class="nav-service-item" onclick="switchTab('bus')">Vé xe khách</div>
+                <div class="nav-service-item" onclick="switchTab('transfer')">Đưa đón sân bay</div>
+                <div class="nav-service-item" onclick="switchTab('car')">Cho thuê xe</div>
+                <div class="nav-service-item" onclick="switchTab('activity')">Hoạt động & Vui chơi</div>
+                
+          <div class="dropdown ">
+    <div class="nav-service-item" data-bs-toggle="dropdown">
+        More <i class="fas fa-chevron-down ms-1" style="font-size: 10px;"></i>
+    </div>
+
+    <ul class="dropdown-menu shadow border-0 mt-2">
+        <li><a class="dropdown-item" href="#"><i class="fas fa-tags me-2 text-primary"></i>Combo tiết kiệm</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-shield-alt me-2 text-primary"></i>Bảo hiểm du lịch</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-gift me-2 text-primary"></i>Phiếu quà tặng</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-ship me-2 text-primary"></i>Du thuyền</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-book me-2 text-primary"></i>Cẩm nang du lịch</a></li>
+    </ul>
+</div>
+
+            </div>
+        </div>
+    </div>
     <div class="hero-content">
       <h1 class="hero-title">App du lịch hàng đầu, một chạm đi bất cứ đâu</h1>
 
